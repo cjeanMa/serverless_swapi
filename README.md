@@ -1,6 +1,6 @@
 # Swapi Endpoint - Serverless
 Este proyecto tiene como finalidad:
- - Generar un endopoint GET para obtener nombres adaptados del api SWAPI.
+ - Generar un endopoint GET para obtener propiedades adaptadas del api SWAPI.
  - Generar un endpoint POST para almacenar data en DynamoDB, y GET para visualizar los datos almacenados.
  - Elaborado con el framework Serverless con NodeJs.
 

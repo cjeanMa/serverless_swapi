@@ -20,7 +20,7 @@ Para la instalacion y prueba del proyecto es necesario tener:
  ```
  - Tener un usuario aws con privilegios sobre lambda, dynamoDB, s3, apiGateway, o por defecto uno con privilegios de admin, con los credenciales del usuario usaremos el siguiente script:
  ```
- serverless config credentials --provider aws --key "*ID_DE_USUARIO*" --secret "*SECRET_KEY_USUARIO*" --profile swapi-deploy-aws
+ serverless config credentials --provider aws --key "ID_DE_USUARIO" --secret "SECRET_KEY_USUARIO" --profile swapi-deploy-aws
  ```
  - Para el despliegue puede usar uno de estos comandos
  ```
@@ -29,4 +29,15 @@ Para la instalacion y prueba del proyecto es necesario tener:
  npm run deploy
  ```
 
- 
+## Resultados
+
+ Se generarán 3 endpoints, de los cuales:
+ - El endpoint get **'/swapi'** puede agregarse paginacion, mediante el query param 'page'; **'/swapi?page=2'**.
+ - El endpoint post **'/employees'** acepta un json con dos parametros **{"nombre": "XXXX", "apellido": "XXXX"}**.
+ - El endpoint get **'/employees'** funciona sin argumentos adicionales.
+
+## Testing
+Se generó los archivos para testear las funciones helpers que colaboran con los controllers, para visualizar su funcionamiento usar el siguiente comando;
+```
+npm test
+```

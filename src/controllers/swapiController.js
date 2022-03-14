@@ -7,7 +7,7 @@ const getData = async (event) => {
     const {page} = event.queryStringParameters || {page:1}
 
     const result = await getNombres(page)
-    const response = mappingSwapi(result)
+    const response = mappingSwapi(result.data.results)
 
     return (formatResponse(200, response))
 }

@@ -1,6 +1,6 @@
 
 const mappingSwapi = (responseSwapi) =>{
-    return responseSwapi.data.results.map(per=>{
+    return responseSwapi.map(per=>{
         return {
             nombre: per.name || "",
             talla: per.height || "",

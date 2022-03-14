@@ -1,0 +1,52 @@
+
+service: swapi-serverless
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+  profile: swapi-deploy-aws
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:*
+          Resource:
+            - "*"
+ 
+functions:
+  swapi:
+    handler: src/controllers/swapiController.getData
+    events:
+      - httpApi:
+          method: get
+          path: /swapi
+  postEmployee:
+    handler: src/controllers/employeeController.postEmployee
+    events:
+      - httpApi:
+          method: post
+          path: /employees
+  getEmployees:
+    handler: src/controllers/employeeController.getEmployees
+    events:
+      - httpApi:
+          method: get
+          path: /employees
+
+resources:
+  Resources:
+    EmployeeTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: EmployeeTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH

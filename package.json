@@ -1,0 +1,17 @@
+{
+  "name": "swapi-serverless",
+  "version": "1.0.0",
+  "author": "Jean M. Castillo",
+  "description": "Endpoint with serverless framework",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "sls deploy --verbose"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1092.0",
+    "axios": "^0.26.1",
+    "uuid": "^8.3.2"
+  }
+}
